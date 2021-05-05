@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Toxic Span Detector</title>
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+
+</head>
+
+<body>
+	<h1>Welcome to Toxic Span Detector</h1>
+    <form action="/" method="POST">
+
+      <div class="input-group">
+        <input autocomplete="on" type="text" name="data" class="form-control custom-control" placeholder="Enter your query">
+      </div>
+
+      <div>
+        <button class="x1 x btn btn-outline-dark btn-lg" type="submit" name="action" value="crf" >CRF</button>
+        <button class="x2 x btn btn-outline-dark btn-lg" type="submit" name="action" value="naive-bayes" >Naive-Bayes</button>
+      </div>
+      <div>
+        <button class="x3 x btn btn-outline-dark btn-lg" type="submit" name="action" value="random-forest" >Random-Forest</button>
+        <button class="x4 x btn btn-outline-dark btn-lg" type="submit" name="action" value="ann" >ANN</button>
+      </div>
+
+    </form>
+
+    {% if X %}
+    	{% for item in X %}
+    		{% if item[1]=='A' %}
+    			<p class="para1">{{item[0]}}</p>
+    		{% else %}
+    			<p class="para2">{{item[0]}}</p>
+    		{% endif %}
+    	{% endfor %}
+    {% endif %}
+
+    <br><br><br>
+
+    <button class="x5 x btn  btn-lg" onclick=" window.open('https://docs.google.com/presentation/d/1bSHy4AK7XHH7hX5zd4XrwFMMPwSE_R6ry_cYm9z6xs4/edit?usp=sharing','_blank')">PPT</button>
+    <button class="x6 x btn  btn-lg" onclick=" window.open('https://docs.google.com/document/d/1ovQ0xYXHqD5LmtXM90ou4G7DNOPbAinZfPYTN1Jj6aY/edit','_blank')">Paper</button>
+
+    <footer>
+      <p>© Copyright 2021 Amir Mushtaque , Ali Sabir</p>
+      <p>Prof. Dr Chiranjeev Kumar</p>
+      <p>Mentor Pramod Kumar </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
